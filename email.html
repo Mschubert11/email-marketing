@@ -2,530 +2,1123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Coop | Email Marketing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coop | Email Marketing</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --orange: #e5661d;
+  --dark: #382015;
+  --cream: #fff8ef;
+  --light: #f4e7d7;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fff8ef;
-      color: #382015;
-    }
+html { scroll-behavior: smooth; }
 
-    /* STEP 1: SIGN-UP FORM */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
 
-    .signup-section {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f58b29, #d85b17);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px;
-    }
+a { color: inherit; }
 
-    .signup-container {
-      background-color: #fff8ef;
-      width: 100%;
-      max-width: 520px;
-      padding: 40px;
-      border-radius: 18px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
-      text-align: center;
-    }
+h1, h2, h3 { line-height: 1.2; }
 
-    .brand {
-      font-size: 36px;
-      font-weight: 900;
-      color: #e5661d;
-      margin-bottom: 5px;
-    }
+.logo {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
 
-    .tagline {
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 30px;
-    }
+.logo span { color: var(--orange); }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 15px;
-      line-height: 1.2;
-    }
+.small-tagline {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 7px;
+}
 
-    .description {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 8px;
+  background: var(--dark);
+  color: white;
+  padding: 17px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s;
+}
 
-    .highlight {
-      color: #e5661d;
-      font-weight: bold;
-    }
+.btn:hover {
+  background: var(--orange);
+}
 
-    form {
-      text-align: left;
-    }
+.section-intro {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  color: #68574e;
+}
 
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+/* STEP 1 */
 
-    .field {
-      margin-bottom: 20px;
-    }
+.signup-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f58b29, #cf5015);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 20px;
+}
 
-    .field-note {
-      font-size: 12px;
-      font-weight: normal;
-      color: #777;
-    }
+.signup-box {
+  width: 100%;
+  max-width: 550px;
+  padding: 42px;
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px #0003;
+  text-align: center;
+}
 
-    input, select {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #d9c8ba;
-      border-radius: 8px;
-      font-size: 15px;
-      background-color: white;
-    }
+.signup-box h1 {
+  font-size: 34px;
+  margin: 30px 0 15px;
+}
 
-    input:focus, select:focus {
-      outline: 2px solid #e5661d;
-      border-color: #e5661d;
-    }
+.signup-description {
+  line-height: 1.7;
+  font-size: 16px;
+}
 
-    .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 18px 0;
-    }
+.offer {
+  color: var(--orange);
+  font-weight: 900;
+}
 
-    .consent input {
-      width: auto;
-      margin-top: 3px;
-    }
+.signup-form {
+  text-align: left;
+  margin-top: 28px;
+}
 
-    .consent label {
-      font-size: 12px;
-      font-weight: normal;
-      line-height: 1.5;
-    }
+.field {
+  margin-bottom: 20px;
+}
 
-    button {
-      width: 100%;
-      background-color: #382015;
-      color: white;
-      padding: 16px;
-      border: none;
-      border-radius: 8px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 
-    button:hover {
-      background-color: #e5661d;
-      transform: translateY(-2px);
-    }
+.optional {
+  font-size: 12px;
+  color: #777;
+  font-weight: normal;
+}
 
-    .privacy {
-      font-size: 12px;
-      color: #695c54;
-      line-height: 1.6;
-      margin-top: 20px;
-    }
+.field input,
+.field select {
+  width: 100%;
+  border: 1px solid #d8c7ba;
+  background: white;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+}
 
-    .message {
-      margin-top: 15px;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.5;
-    }
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--orange);
+}
 
-    /* STEP 2: LIST-BUILDING STRATEGY */
+.check-area {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 20px 0;
+}
 
-    .strategy-section {
-      background-color: #fff8ef;
-      padding: 85px 20px;
-      text-align: center;
-    }
+.check-area input {
+  margin-top: 3px;
+  accent-color: var(--orange);
+}
 
-    .strategy-container {
-      max-width: 1150px;
-      margin: 0 auto;
-    }
+.check-area label {
+  font-size: 12px;
+  line-height: 1.6;
+}
 
-    .strategy-section h2 {
-      font-size: 36px;
-      color: #382015;
-      margin-bottom: 12px;
-    }
+.submit-btn {
+  width: 100%;
+}
 
-    .strategy-intro {
-      font-size: 16px;
-      color: #695c54;
-      max-width: 650px;
-      margin: 0 auto 45px;
-      line-height: 1.6;
-    }
+.privacy-text {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #68574e;
+  margin-top: 20px;
+}
 
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.form-message {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #9a3715;
+}
 
-    .strategy-card {
-      background-color: white;
-      border-radius: 15px;
-      padding: 30px;
-      text-align: left;
-      border-top: 6px solid #e5661d;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    }
+/* STEP 2 */
 
-    .strategy-number {
-      color: #e5661d;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.strategy-section {
+  padding: 90px 20px;
+  text-align: center;
+}
 
-    .strategy-card h3 {
-      font-size: 23px;
-      margin: 12px 0 25px;
-      color: #382015;
-    }
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
 
-    .strategy-card h4 {
-      color: #d85b17;
-      font-size: 15px;
-      margin: 20px 0 8px;
-    }
+.strategy-section h2,
+.preview-section h2 {
+  font-size: 37px;
+}
 
-    .strategy-card p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: #51463f;
-      margin: 0;
-    }
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
 
-    .strategy-footer {
-      margin-top: 35px;
-      font-size: 13px;
-      color: #695c54;
-      line-height: 1.6;
-    }
+.strategy-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+  border-top: 7px solid var(--orange);
+  box-shadow: 0 8px 25px #00000012;
+}
 
-    /* MOBILE RESPONSIVENESS */
+.card-number {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
-    @media (max-width: 850px) {
-      .strategy-grid {
-        grid-template-columns: 1fr;
-      }
+.strategy-card h3 {
+  font-size: 24px;
+  margin: 13px 0 24px;
+}
 
-      .strategy-section h2 {
-        font-size: 29px;
-      }
-    }
+.strategy-card h4 {
+  font-size: 15px;
+  color: #d85b17;
+  margin: 24px 0 8px;
+}
 
-    @media (max-width: 600px) {
-      .signup-container {
-        padding: 28px 22px;
-      }
+.strategy-card p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #57463c;
+  margin: 0;
+}
 
-      h1 {
-        font-size: 27px;
-      }
+.strategy-note {
+  max-width: 800px;
+  margin: 35px auto 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #68574e;
+}
 
-      .brand {
-        font-size: 30px;
-      }
+/* STEP 3 */
 
-      .strategy-section {
-        padding: 60px 20px;
-      }
-    }
-  </style>
+.preview-section {
+  padding: 90px 20px;
+  background: var(--light);
+  text-align: center;
+}
+
+.mailbox {
+  max-width: 850px;
+  background: white;
+  margin: auto;
+  border-radius: 17px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 14px 40px #00000020;
+}
+
+.mailbox-toolbar {
+  background: #f6f6f6;
+  border-bottom: 1px solid #ddd;
+  padding: 17px 25px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.red { background: #ff605c; }
+.yellow { background: #ffbd44; }
+.green { background: #00ca4e; }
+
+.mailbox-label {
+  color: #777;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.mailbox-info {
+  padding: 28px 35px;
+  border-bottom: 1px solid #ddd;
+}
+
+.mailbox-info h3 {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.mailbox-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.mailbox-info strong { color: #222; }
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: bold;
+}
+
+.email {
+  max-width: 650px;
+  margin: auto;
+}
+
+/* EMAIL HEADER */
+
+.email-header {
+  background: var(--orange);
+  padding: 36px 20px;
+  text-align: center;
+  color: white;
+}
+
+.email-header .logo span { color: white; }
+
+.email-header .small-tagline {
+  color: #ffe8d5;
+}
+
+/* EMAIL HERO */
+
+.email-hero {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 48px 25px;
+}
+
+.email-hero h3 {
+  font-size: 38px;
+  margin: 0 0 15px;
+}
+
+.email-hero p {
+  color: #ffc58d;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* EMAIL BODY */
+
+.email-body {
+  padding: 40px;
+  color: var(--dark);
+}
+
+.email-body p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+
+.sauce-highlight {
+  padding: 25px;
+  background: #fff1e2;
+  border-left: 5px solid var(--orange);
+  border-radius: 6px;
+  margin: 28px 0;
+}
+
+.sauce-highlight h4 {
+  color: #d85b17;
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+.sauce-highlight p { margin: 0; }
+
+.email-button-container {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.email-button {
+  background: var(--orange);
+  min-width: 260px;
+}
+
+.email-button:hover {
+  background: var(--dark);
+}
+
+.email-landing-note {
+  text-align: center;
+  font-size: 12px !important;
+  color: #777;
+}
+
+.email-signoff {
+  margin-top: 32px;
+}
+
+/* EMAIL FOOTER */
+
+.email-footer {
+  background: var(--dark);
+  color: white;
+  padding: 42px 25px;
+  text-align: center;
+}
+
+.footer-logo {
+  color: var(--orange);
+  font-size: 33px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.footer-tagline {
+  color: #f2bea1;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid #795747;
+  margin: 26px 0;
+}
+
+.footer-contact {
+  color: #f3ddd0;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.email-footer a {
+  color: #ffae70;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.social-links a {
+  background: #e5661d;
+  color: white;
+  padding: 12px 19px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.social-links a:hover {
+  background: #ff9149;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+  margin: 23px 0;
+}
+
+.footer-small {
+  color: #d9b6a3;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.demo-note {
+  max-width: 750px;
+  margin: 25px auto 0;
+  color: #68574e;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media(max-width: 850px) {
+  .strategy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .signup-box { padding: 28px 22px; }
+  .signup-box h1 { font-size: 29px; }
+  .strategy-section,
+  .preview-section { padding: 60px 16px; }
+  .strategy-section h2,
+  .preview-section h2 { font-size: 29px; }
+  .mailbox-info { padding: 23px 18px; }
+  .email-body { padding: 27px 22px; }
+  .email-hero h3 { font-size: 30px; }
+  .footer-links { gap: 13px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- STEP 1: EMAIL SIGN-UP FORM -->
+<!-- STEP 1: WEBSITE SIGN-UP FORM -->
 
-  <section class="signup-section" id="signup">
-    <div class="signup-container">
+<section class="signup-section" id="signup">
 
-      <div class="brand">THE COOP</div>
-      <div class="tagline">CHICKEN • SAUCE • GOOD TIMES</div>
+  <div class="signup-box">
 
-      <h1>Good Chicken.<br>Better Deals.</h1>
+    <div class="logo">THE <span>COOP</span></div>
+    <div class="small-tagline">
+      CHICKEN • SAUCE • GOOD TIMES
+    </div>
 
-      <p class="description">
-        Join The Coop's email list and get
-        <span class="highlight">10% OFF</span>
-        your next online order!
-        Plus, be the first to hear about exclusive deals,
-        menu updates, and all things Coop.
+    <h1>Good Chicken.<br>Better Deals.</h1>
+
+    <p class="signup-description">
+      Join The Coop's email list and get
+      <span class="offer">10% OFF</span>
+      your next online order!
+      Be the first to hear about exclusive
+      deals, menu updates, and all things Coop.
+    </p>
+
+    <form class="signup-form" id="signupForm">
+
+      <div class="field">
+        <label for="email">
+          Email Address
+          <span class="optional">(Required)</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required>
+      </div>
+
+      <div class="field">
+        <label for="firstName">
+          First Name
+          <span class="optional">(Optional)</span>
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Your first name">
+      </div>
+
+      <div class="field">
+        <label for="favorite">
+          What's Your Coop Craving?
+          <span class="optional">(Optional)</span>
+        </label>
+
+        <select id="favorite" name="favorite">
+          <option value="">Choose your favorite</option>
+          <option value="tenders">Chicken Tenders</option>
+          <option value="sandwich">Chicken Sandwiches</option>
+          <option value="sauce">Signature Coop Sauce</option>
+          <option value="all">All of the Above</option>
+        </select>
+      </div>
+
+      <div class="check-area">
+        <input
+          type="checkbox"
+          id="consent"
+          required>
+
+        <label for="consent">
+          I agree to receive promotional emails
+          from The Coop, including exclusive deals
+          and menu updates approximately twice
+          a month. I can unsubscribe anytime.
+          (Required)
+        </label>
+      </div>
+
+      <button type="submit" class="btn submit-btn">
+        GET MY 10% OFF!
+      </button>
+
+      <p class="privacy-text">
+        No spam, just the good stuff.
+        We respect your privacy and will
+        never sell your email list information.
+        You'll receive a confirmation email
+        to verify your subscription before
+        receiving your discount.
+        Unsubscribe anytime.
+        <a
+          href="https://thecoopchickenfingers.com/terms"
+          target="_blank"
+          rel="noopener noreferrer">
+          Privacy Policy
+        </a>
       </p>
 
-      <form id="signupForm">
+      <p
+        id="formMessage"
+        class="form-message"
+        role="status"
+        aria-live="polite">
+      </p>
 
-        <div class="field">
-          <label for="email">
-            Email Address
-            <span class="field-note">(Required)</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-          >
+    </form>
+
+  </div>
+</section>
+
+
+<!-- STEP 2: LIST-BUILDING STRATEGY -->
+
+<section class="strategy-section" id="strategy">
+
+  <div class="container">
+
+    <h2>More Ways to Join the Coop</h2>
+
+    <p class="section-intro">
+      Whether you're stopping in for chicken,
+      grabbing food after class, or ordering
+      online, there's always a reason to
+      stay connected. Here's how The Coop
+      will build its email community.
+    </p>
+
+    <div class="strategy-grid">
+
+      <!-- CUSTOMER GROUP 1 -->
+
+      <article class="strategy-card">
+
+        <div class="card-number">
+          CUSTOMER GROUP 01
         </div>
 
-        <div class="field">
-          <label for="firstName">
-            First Name
-            <span class="field-note">(Optional)</span>
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            placeholder="Your first name"
-            autocomplete="given-name"
-          >
-        </div>
+        <h3>In-Store Customers</h3>
 
-        <div class="field">
-          <label for="favorite">
-            What's Your Coop Craving?
-            <span class="field-note">(Optional)</span>
-          </label>
+        <h4>Where &amp; How We Collect Emails</h4>
 
-          <select id="favorite" name="favorite">
-            <option value="">Select your favorite</option>
-            <option value="tenders">Chicken Tenders</option>
-            <option value="sandwiches">Chicken Sandwiches</option>
-            <option value="sauce">Signature Sauce</option>
-            <option value="everything">All of the Above</option>
-          </select>
-        </div>
-
-        <div class="consent">
-          <input
-            type="checkbox"
-            id="consent"
-            name="consent"
-            required
-          >
-
-          <label for="consent">
-            I agree to receive promotional emails from
-            The Coop, including special offers and menu
-            updates, approximately twice a month.
-            I understand I can unsubscribe anytime.
-            (Required)
-          </label>
-        </div>
-
-        <button type="submit">
-          GET MY 10% OFF!
-        </button>
-
-        <p class="privacy">
-          No spam, just the good stuff.
-          We respect your privacy and will never sell
-          your personal information.
-          After signing up, you'll receive a confirmation
-          email to verify your subscription.
-          Your discount will be sent once you confirm.
+        <p>
+          Place QR codes at the register,
+          on tables, and on takeout packaging.
+          Employees can encourage customers
+          to scan and subscribe while ordering.
+          QR codes lead directly to the email
+          sign-up form.
         </p>
 
-        <p class="message" id="formMessage"
-           role="status" aria-live="polite"></p>
+        <h4>Immediate Value Exchange</h4>
 
-      </form>
+        <p>
+          Customers receive a 10% off digital
+          coupon for their next order after
+          confirming their subscription.
+        </p>
+
+        <h4>Long-Term Value Promise</h4>
+
+        <p>
+          Subscribers receive exclusive
+          discounts, new menu announcements,
+          and early access to limited-time
+          promotions to encourage repeat visits.
+        </p>
+
+      </article>
+
+      <!-- CUSTOMER GROUP 2 -->
+
+      <article class="strategy-card">
+
+        <div class="card-number">
+          CUSTOMER GROUP 02
+        </div>
+
+        <h3>Iowa State Students</h3>
+
+        <h4>Where &amp; How We Collect Emails</h4>
+
+        <p>
+          Reach students through Instagram
+          stories, organic social media posts,
+          targeted campus advertisements,
+          and QR code flyers near Iowa State.
+          Promote convenient meals for busy
+          college students.
+        </p>
+
+        <h4>Immediate Value Exchange</h4>
+
+        <p>
+          Students receive a digital student
+          discount coupon after signing up
+          and verifying their email address.
+        </p>
+
+        <h4>Long-Term Value Promise</h4>
+
+        <p>
+          Students stay subscribed for
+          student-exclusive promotions,
+          late-night meal deals, and
+          special offers during campus
+          events and game days.
+        </p>
+
+      </article>
+
+      <!-- CUSTOMER GROUP 3 -->
+
+      <article class="strategy-card">
+
+        <div class="card-number">
+          CUSTOMER GROUP 03
+        </div>
+
+        <h3>Online Shoppers</h3>
+
+        <h4>Where &amp; How We Collect Emails</h4>
+
+        <p>
+          Promote the sign-up form through
+          The Coop's website, online ordering
+          pages, Instagram posts, and
+          digital advertisements.
+          Customers can voluntarily subscribe
+          without being automatically added
+          through a purchase.
+        </p>
+
+        <h4>Immediate Value Exchange</h4>
+
+        <p>
+          Customers receive 10% off their
+          next online order after confirming
+          their email subscription.
+        </p>
+
+        <h4>Long-Term Value Promise</h4>
+
+        <p>
+          Subscribers receive personalized
+          offers based on their preferences,
+          new menu announcements, and
+          online-ordering promotions to
+          encourage future purchases.
+        </p>
+
+      </article>
 
     </div>
-  </section>
+
+    <p class="strategy-note">
+      All three customer groups must voluntarily
+      consent to receiving promotional emails.
+      Double opt-in confirmation verifies each
+      subscriber's email address. Every commercial
+      email includes a clear unsubscribe option.
+      Discounts and student offers are proposed
+      campaign incentives.
+    </p>
+
+  </div>
+</section>
 
 
-  <!-- STEP 2: LIST-BUILDING STRATEGY -->
+<!-- STEP 3: GENERAL EMAIL & FOOTER PREVIEW -->
 
-  <section class="strategy-section" id="list-strategy">
+<section class="preview-section" id="email-preview">
 
-    <div class="strategy-container">
+  <div class="container">
 
-      <h2>More Ways to Join the Coop</h2>
+    <h2>A Little Something From The Coop</h2>
 
-      <p class="strategy-intro">
-        Whether you're grabbing chicken after class,
-        stopping in for your favorite meal, or ordering
-        online, there's always a reason to stay connected.
-        Here's how The Coop plans to build its email community.
-      </p>
+    <p class="section-intro">
+      This promotional email would be sent
+      to the entire subscriber list a few
+      months after sign-up. It reminds customers
+      about The Coop's signature sauces and
+      encourages them to order online.
+    </p>
 
-      <div class="strategy-grid">
+    <div class="mailbox">
 
-        <!-- GROUP 1: IN-STORE CUSTOMERS -->
+      <!-- MAILBOX UI FRAME -->
 
-        <div class="strategy-card">
+      <div class="mailbox-toolbar">
 
-          <div class="strategy-number">CUSTOMER GROUP 01</div>
-
-          <h3>In-Store Customers</h3>
-
-          <h4>Where &amp; How We Collect Emails</h4>
-          <p>
-            Place QR codes near the register, on tables,
-            and on takeout packaging. Employees can also
-            invite customers to sign up while ordering.
-            The QR code takes customers directly to
-            The Coop's email sign-up form.
-          </p>
-
-          <h4>Immediate Value Exchange</h4>
-          <p>
-            Customers receive a 10% off coupon for
-            their next order after confirming their
-            email subscription.
-          </p>
-
-          <h4>Long-Term Value Promise</h4>
-          <p>
-            Subscribers receive exclusive discounts,
-            special menu announcements, and early
-            access to limited-time promotions.
-          </p>
-
+        <div class="dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
         </div>
 
-
-        <!-- GROUP 2: IOWA STATE STUDENTS -->
-
-        <div class="strategy-card">
-
-          <div class="strategy-number">CUSTOMER GROUP 02</div>
-
-          <h3>Iowa State Students</h3>
-
-          <h4>Where &amp; How We Collect Emails</h4>
-          <p>
-            Promote the email list through Instagram
-            stories, campus flyers with QR codes,
-            and student-focused social media ads.
-            Messaging will highlight affordable meals
-            and deals for busy college students.
-          </p>
-
-          <h4>Immediate Value Exchange</h4>
-          <p>
-            Students receive access to a special
-            student discount or a digital coupon
-            after signing up and confirming
-            their email address.
-          </p>
-
-          <h4>Long-Term Value Promise</h4>
-          <p>
-            Students stay subscribed for future
-            student-only deals, late-night meal
-            promotions, and exclusive offers
-            during busy campus events.
-          </p>
-
-        </div>
-
-
-        <!-- GROUP 3: ONLINE SHOPPERS -->
-
-        <div class="strategy-card">
-
-          <div class="strategy-number">CUSTOMER GROUP 03</div>
-
-          <h3>Online Shoppers</h3>
-
-          <h4>Where &amp; How We Collect Emails</h4>
-          <p>
-            Add an email sign-up opportunity to
-            The Coop's online ordering website.
-            Promote the form through Instagram
-            posts, digital advertisements, and
-            links on social media profiles.
-          </p>
-
-          <h4>Immediate Value Exchange</h4>
-          <p>
-            New subscribers receive 10% off
-            their next online order after
-            confirming their subscription.
-          </p>
-
-          <h4>Long-Term Value Promise</h4>
-          <p>
-            Subscribers receive personalized
-            promotions, updates on new menu items,
-            and exclusive online ordering deals
-            that encourage repeat purchases.
-          </p>
-
+        <div class="mailbox-label">
+          Inbox / Promotional Email
         </div>
 
       </div>
 
-      <p class="strategy-footer">
-        The Coop will only collect emails from customers
-        who voluntarily choose to subscribe. Every sign-up
-        will require consent and email confirmation, and
-        subscribers can unsubscribe at any time.
-      </p>
+      <!-- EMAIL METADATA -->
+
+      <div class="mailbox-info">
+
+        <h3>Your Next Coop Craving Awaits</h3>
+
+        <p>
+          <span class="avatar">TC</span>
+          <strong>From:</strong>
+          The Coop Chicken Fingers
+        </p>
+
+        <p>
+          <strong>To:</strong>
+          [Subscriber Email Address]
+        </p>
+
+        <p>
+          <strong>Subject:</strong>
+          Your Next Coop Craving Awaits
+        </p>
+
+      </div>
+
+      <!-- COMMERCIAL EMAIL -->
+
+      <div class="email">
+
+        <!-- BRAND HEADER -->
+
+        <header class="email-header">
+
+          <div class="logo">
+            THE <span>COOP</span>
+          </div>
+
+          <div class="small-tagline">
+            HAND-BREADED. NO SHORTCUTS.
+          </div>
+
+        </header>
+
+        <!-- HERO MESSAGE -->
+
+        <div class="email-hero">
+
+          <h3>
+            Your Next Craving<br>
+            Is Calling.
+          </h3>
+
+          <p>
+            Crispy chicken. Signature sauce.
+            Your favorite combo.
+          </p>
+
+        </div>
+
+        <!-- EMAIL BODY -->
+
+        <div class="email-body">
+
+          <p><strong>Hey [First Name],</strong></p>
+
+          <p>
+            It's been a little while since
+            you joined The Coop family,
+            and we wanted to give you
+            another reason to stop by!
+          </p>
+
+          <p>
+            Whether you're grabbing a quick
+            lunch, picking up dinner, or
+            fueling up after a long day,
+            nothing hits quite like
+            hand-breaded chicken fingers,
+            crispy fries, and your favorite
+            Coop sauce.
+          </p>
+
+          <div class="sauce-highlight">
+
+            <h4>It's All About the Sauce.</h4>
+
+            <p>
+              From our classic Coop Sauce
+              to bold flavors like Hot Honey,
+              Fox Sauce, and Jalapeño Ranch,
+              there's a sauce for every craving.
+              Find your favorite or try
+              something new with your next order!
+            </p>
+
+          </div>
+
+          <p>
+            Your next meal is only a few
+            clicks away. Check out our menu,
+            pick your favorite combo,
+            and let us handle the rest.
+          </p>
+
+          <!-- EMAIL CTA -->
+
+          <div class="email-button-container">
+
+            <a
+              class="btn email-button"
+              href="https://thecoopchickenfingers.com/menu/ames"
+              target="_blank"
+              rel="noopener noreferrer">
+              ORDER THE COOP NOW
+            </a>
+
+          </div>
+
+          <p class="email-landing-note">
+            CTA Landing Page:
+            The Coop Ames Online Menu &amp; Ordering Page
+          </p>
+
+          <p class="email-signoff">
+            See you soon!<br>
+            <strong>The Coop Team</strong>
+          </p>
+
+        </div>
+
+        <!-- REQUIRED BRANDED FOOTER -->
+
+        <footer class="email-footer">
+
+          <!-- LOGO & TAGLINE -->
+
+          <div class="footer-logo">
+            THE COOP
+          </div>
+
+          <div class="footer-tagline">
+            HAND-BREADED. NO SHORTCUTS.
+          </div>
+
+          <hr class="footer-divider">
+
+          <!-- CONTACT INFORMATION -->
+
+          <div class="footer-contact">
+
+            <strong>
+              The Coop Chicken Fingers
+            </strong>
+
+            <div>
+              2420 Lincoln Way, Suite 103
+            </div>
+
+            <div>
+              Ames, IA 50014
+            </div>
+
+            <div>
+              Customer Contact:
+              <a href="tel:+13194233614">
+                (319) 423-3614
+              </a>
+            </div>
+
+            <div>
+              <a
+                href="https://thecoopchickenfingers.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+                thecoopchickenfingers.com
+              </a>
+            </div>
+
+          </div>
+
+          <!-- SOCIAL MEDIA -->
+
+          <div class="social-links">
+
+            <a
+              href="https://www.linkedin.com/company/the-coop-chicken-fingers"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="The Coop on LinkedIn">
+              in &nbsp; LinkedIn
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram">
+              ◎ &nbsp; Instagram
+            </a>
+
+          </div>
+
+          <hr class="footer-divider">
+
+          <!-- PRIVACY, FORWARD & UNSUBSCRIBE -->
+
+          <nav class="footer-links"
+               aria-label="Email footer links">
+
+            <a
+              href="https://thecoopchickenfingers.com/terms"
+              target="_blank"
+              rel="noopener noreferrer">
+              Privacy Policy
+            </a>
+
+            <a
+              href="mailto:?subject=Check%20Out%20The%20Coop%20Chicken%20Fingers&body=Thought%20you%20might%20like%20The%20Coop!%20Check%20out%20their%20menu%3A%20https%3A%2F%2Fthecoopchickenfingers.com%2Fmenu%2Fames">
+              Forward to a Friend
+            </a>
+
+            <a
+              href="#unsubscribe"
+              id="unsubscribeLink">
+              Unsubscribe
+            </a>
+
+          </nav>
+
+          <p class="footer-small">
+            You're receiving this sample
+            promotional email because you
+            subscribed to The Coop's email list.
+            You can unsubscribe from future
+            promotional messages at any time.
+          </p>
+
+          <p class="footer-small">
+            © 2026 The Coop Chicken Fingers.
+            All rights reserved.
+          </p>
+
+        </footer>
+
+      </div>
 
     </div>
 
-  </section>
+    <p class="demo-note">
+      Educational marketing campaign preview.
+      The sign-up, email confirmation, coupon
+      distribution, and unsubscribe processing
+      require an email marketing platform
+      before this campaign can go live.
+    </p>
+
+  </div>
+
+</section>
 
 
-  <!-- FORM PREVIEW SCRIPT -->
+<!-- INTERACTIVE DEMO BEHAVIOR -->
 
-  <script>
-    const form = document.getElementById("signupForm");
-    const message = document.getElementById("formMessage");
+<script>
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
+const form = document.getElementById("signupForm");
+const message = document.getElementById("formMessage");
 
-      if (!form.reportValidity()) {
-        return;
-      }
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      message.style.color = "#9a3715";
-      message.textContent =
-        "Form preview only. Connect an email marketing " +
-        "service to submit your subscription and send " +
-        "a confirmation email.";
-    });
-  </script>
+  if (!form.reportValidity()) return;
+
+  message.textContent =
+    "This is the campaign preview. " +
+    "A connected email service would receive " +
+    "your request and send a confirmation email. " +
+    "No information has been submitted.";
+});
+
+const unsubscribeLink =
+  document.getElementById("unsubscribeLink");
+
+unsubscribeLink.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  alert(
+    "Unsubscribe preview: In a real email, " +
+    "this link would take the subscriber " +
+    "to a secure unsubscribe page."
+  );
+});
+
+</script>
 
 </body>
 </html>
