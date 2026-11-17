@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coop | Exclusive Deals</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff8ef;
+      color: #382015;
+    }
+
+    .signup-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f58b29, #d85b17);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .signup-container {
+      background-color: #fff8ef;
+      width: 100%;
+      max-width: 520px;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+      text-align: center;
+    }
+
+    .brand {
+      font-size: 36px;
+      font-weight: 900;
+      color: #e5661d;
+      margin-bottom: 5px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .highlight {
+      color: #e5661d;
+      font-weight: bold;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field-note {
+      font-size: 12px;
+      font-weight: normal;
+      color: #777;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d9c8ba;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: white;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid #e5661d;
+      border-color: #e5661d;
+    }
+
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .consent label {
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      background-color: #382015;
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e5661d;
+      transform: translateY(-2px);
+    }
+
+    .privacy {
+      font-size: 12px;
+      color: #695c54;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .signup-container {
+        padding: 28px 22px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STEP 1: EMAIL SIGN-UP FORM -->
+
+  <section class="signup-section">
+    <div class="signup-container">
+
+      <div class="brand">THE COOP</div>
+      <div class="tagline">CHICKEN • SAUCE • GOOD TIMES</div>
+
+      <h1>Good Chicken.<br>Better Deals.</h1>
+
+      <p class="description">
+        Join The Coop's email list and get
+        <span class="highlight">10% OFF</span>
+        your next online order!
+        Plus, be the first to hear about exclusive deals,
+        menu updates, and all things Coop.
+      </p>
+
+      <form id="signupForm">
+
+        <div class="field">
+          <label for="email">
+            Email Address
+            <span class="field-note">(Required)</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="firstName">
+            First Name
+            <span class="field-note">(Optional)</span>
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="Your first name"
+            autocomplete="given-name"
+          >
+        </div>
+
+        <div class="field">
+          <label for="favorite">
+            What's Your Coop Craving?
+            <span class="field-note">(Optional)</span>
+          </label>
+
+          <select id="favorite" name="favorite">
+            <option value="">Select your favorite</option>
+            <option value="tenders">Chicken Tenders</option>
+            <option value="sandwiches">Chicken Sandwiches</option>
+            <option value="sauce">Signature Sauce</option>
+            <option value="everything">All of the Above</option>
+          </select>
+        </div>
+
+        <div class="consent">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            required
+          >
+
+          <label for="consent">
+            I agree to receive promotional emails from
+            The Coop, including special offers and menu
+            updates, approximately twice a month.
+            I understand I can unsubscribe anytime.
+            (Required)
+          </label>
+        </div>
+
+        <button type="submit">
+          GET MY 10% OFF!
+        </button>
+
+        <p class="privacy">
+          No spam, just the good stuff.
+          We respect your privacy and will never sell
+          your personal information.
+          After signing up, you'll receive a confirmation
+          email to verify your subscription.
+          Your discount will be sent once you confirm.
+        </p>
+
+        <p class="message" id="formMessage"
+           role="status" aria-live="polite"></p>
+
+      </form>
+
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const message = document.getElementById("formMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      message.style.color = "#9a3715";
+      message.textContent =
+        "Form preview only. Connect an email marketing " +
+        "service to submit your subscription and send " +
+        "a confirmation email.";
+    });
+  </script>
+
+</body>
+</html>
