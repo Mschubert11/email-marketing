@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Coop | Exclusive Deals</title>
+  <title>The Coop | Email Marketing</title>
 
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -17,6 +21,8 @@
       background-color: #fff8ef;
       color: #382015;
     }
+
+    /* STEP 1: SIGN-UP FORM */
 
     .signup-section {
       min-height: 100vh;
@@ -153,6 +159,93 @@
       line-height: 1.5;
     }
 
+    /* STEP 2: LIST-BUILDING STRATEGY */
+
+    .strategy-section {
+      background-color: #fff8ef;
+      padding: 85px 20px;
+      text-align: center;
+    }
+
+    .strategy-container {
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .strategy-section h2 {
+      font-size: 36px;
+      color: #382015;
+      margin-bottom: 12px;
+    }
+
+    .strategy-intro {
+      font-size: 16px;
+      color: #695c54;
+      max-width: 650px;
+      margin: 0 auto 45px;
+      line-height: 1.6;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .strategy-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: left;
+      border-top: 6px solid #e5661d;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .strategy-number {
+      color: #e5661d;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .strategy-card h3 {
+      font-size: 23px;
+      margin: 12px 0 25px;
+      color: #382015;
+    }
+
+    .strategy-card h4 {
+      color: #d85b17;
+      font-size: 15px;
+      margin: 20px 0 8px;
+    }
+
+    .strategy-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #51463f;
+      margin: 0;
+    }
+
+    .strategy-footer {
+      margin-top: 35px;
+      font-size: 13px;
+      color: #695c54;
+      line-height: 1.6;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 850px) {
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strategy-section h2 {
+        font-size: 29px;
+      }
+    }
+
     @media (max-width: 600px) {
       .signup-container {
         padding: 28px 22px;
@@ -160,6 +253,14 @@
 
       h1 {
         font-size: 27px;
+      }
+
+      .brand {
+        font-size: 30px;
+      }
+
+      .strategy-section {
+        padding: 60px 20px;
       }
     }
   </style>
@@ -169,7 +270,7 @@
 
   <!-- STEP 1: EMAIL SIGN-UP FORM -->
 
-  <section class="signup-section">
+  <section class="signup-section" id="signup">
     <div class="signup-container">
 
       <div class="brand">THE COOP</div>
@@ -268,6 +369,144 @@
 
     </div>
   </section>
+
+
+  <!-- STEP 2: LIST-BUILDING STRATEGY -->
+
+  <section class="strategy-section" id="list-strategy">
+
+    <div class="strategy-container">
+
+      <h2>More Ways to Join the Coop</h2>
+
+      <p class="strategy-intro">
+        Whether you're grabbing chicken after class,
+        stopping in for your favorite meal, or ordering
+        online, there's always a reason to stay connected.
+        Here's how The Coop plans to build its email community.
+      </p>
+
+      <div class="strategy-grid">
+
+        <!-- GROUP 1: IN-STORE CUSTOMERS -->
+
+        <div class="strategy-card">
+
+          <div class="strategy-number">CUSTOMER GROUP 01</div>
+
+          <h3>In-Store Customers</h3>
+
+          <h4>Where &amp; How We Collect Emails</h4>
+          <p>
+            Place QR codes near the register, on tables,
+            and on takeout packaging. Employees can also
+            invite customers to sign up while ordering.
+            The QR code takes customers directly to
+            The Coop's email sign-up form.
+          </p>
+
+          <h4>Immediate Value Exchange</h4>
+          <p>
+            Customers receive a 10% off coupon for
+            their next order after confirming their
+            email subscription.
+          </p>
+
+          <h4>Long-Term Value Promise</h4>
+          <p>
+            Subscribers receive exclusive discounts,
+            special menu announcements, and early
+            access to limited-time promotions.
+          </p>
+
+        </div>
+
+
+        <!-- GROUP 2: IOWA STATE STUDENTS -->
+
+        <div class="strategy-card">
+
+          <div class="strategy-number">CUSTOMER GROUP 02</div>
+
+          <h3>Iowa State Students</h3>
+
+          <h4>Where &amp; How We Collect Emails</h4>
+          <p>
+            Promote the email list through Instagram
+            stories, campus flyers with QR codes,
+            and student-focused social media ads.
+            Messaging will highlight affordable meals
+            and deals for busy college students.
+          </p>
+
+          <h4>Immediate Value Exchange</h4>
+          <p>
+            Students receive access to a special
+            student discount or a digital coupon
+            after signing up and confirming
+            their email address.
+          </p>
+
+          <h4>Long-Term Value Promise</h4>
+          <p>
+            Students stay subscribed for future
+            student-only deals, late-night meal
+            promotions, and exclusive offers
+            during busy campus events.
+          </p>
+
+        </div>
+
+
+        <!-- GROUP 3: ONLINE SHOPPERS -->
+
+        <div class="strategy-card">
+
+          <div class="strategy-number">CUSTOMER GROUP 03</div>
+
+          <h3>Online Shoppers</h3>
+
+          <h4>Where &amp; How We Collect Emails</h4>
+          <p>
+            Add an email sign-up opportunity to
+            The Coop's online ordering website.
+            Promote the form through Instagram
+            posts, digital advertisements, and
+            links on social media profiles.
+          </p>
+
+          <h4>Immediate Value Exchange</h4>
+          <p>
+            New subscribers receive 10% off
+            their next online order after
+            confirming their subscription.
+          </p>
+
+          <h4>Long-Term Value Promise</h4>
+          <p>
+            Subscribers receive personalized
+            promotions, updates on new menu items,
+            and exclusive online ordering deals
+            that encourage repeat purchases.
+          </p>
+
+        </div>
+
+      </div>
+
+      <p class="strategy-footer">
+        The Coop will only collect emails from customers
+        who voluntarily choose to subscribe. Every sign-up
+        will require consent and email confirmation, and
+        subscribers can unsubscribe at any time.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FORM PREVIEW SCRIPT -->
 
   <script>
     const form = document.getElementById("signupForm");
