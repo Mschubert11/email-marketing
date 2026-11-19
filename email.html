@@ -14,9 +14,13 @@
   --light: #f4e7d7;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -25,17 +29,32 @@ body {
   color: var(--dark);
 }
 
-a { color: inherit; }
-
-h1, h2, h3 { line-height: 1.2; }
-
-.logo {
-  font-size: 38px;
-  font-weight: 900;
-  letter-spacing: -2px;
+a {
+  color: inherit;
 }
 
-.logo span { color: var(--orange); }
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+/* ACTUAL COOP LOGO */
+
+.coop-logo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 15px;
+  object-fit: contain;
+}
+
+.email-header .coop-logo {
+  width: 220px;
+}
+
+.email-footer .coop-logo {
+  width: 180px;
+}
 
 .small-tagline {
   font-size: 12px;
@@ -70,7 +89,7 @@ h1, h2, h3 { line-height: 1.2; }
   color: #68574e;
 }
 
-/* STEP 1 */
+/* STEP 1: SIGN-UP FORM */
 
 .signup-section {
   min-height: 100vh;
@@ -178,7 +197,7 @@ h1, h2, h3 { line-height: 1.2; }
   color: #9a3715;
 }
 
-/* STEP 2 */
+/* STEP 2: LIST-BUILDING STRATEGY */
 
 .strategy-section {
   padding: 90px 20px;
@@ -243,7 +262,7 @@ h1, h2, h3 { line-height: 1.2; }
   color: #68574e;
 }
 
-/* STEP 3 */
+/* STEP 3: MAILBOX PREVIEW */
 
 .preview-section {
   padding: 90px 20px;
@@ -308,7 +327,9 @@ h1, h2, h3 { line-height: 1.2; }
   line-height: 1.6;
 }
 
-.mailbox-info strong { color: #222; }
+.mailbox-info strong {
+  color: #222;
+}
 
 .avatar {
   display: inline-flex;
@@ -336,8 +357,6 @@ h1, h2, h3 { line-height: 1.2; }
   text-align: center;
   color: white;
 }
-
-.email-header .logo span { color: white; }
 
 .email-header .small-tagline {
   color: #ffe8d5;
@@ -390,7 +409,9 @@ h1, h2, h3 { line-height: 1.2; }
   margin: 0 0 12px;
 }
 
-.sauce-highlight p { margin: 0; }
+.sauce-highlight p {
+  margin: 0;
+}
 
 .email-button-container {
   text-align: center;
@@ -416,20 +437,13 @@ h1, h2, h3 { line-height: 1.2; }
   margin-top: 32px;
 }
 
-/* EMAIL FOOTER */
+/* BRANDED EMAIL FOOTER */
 
 .email-footer {
   background: var(--dark);
   color: white;
   padding: 42px 25px;
   text-align: center;
-}
-
-.footer-logo {
-  color: var(--orange);
-  font-size: 33px;
-  font-weight: 900;
-  letter-spacing: -1px;
 }
 
 .footer-tagline {
@@ -500,23 +514,52 @@ h1, h2, h3 { line-height: 1.2; }
   line-height: 1.7;
 }
 
-@media(max-width: 850px) {
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 850px) {
   .strategy-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media(max-width: 600px) {
-  .signup-box { padding: 28px 22px; }
-  .signup-box h1 { font-size: 29px; }
+@media (max-width: 600px) {
+  .signup-box {
+    padding: 28px 22px;
+  }
+
+  .signup-box h1 {
+    font-size: 29px;
+  }
+
   .strategy-section,
-  .preview-section { padding: 60px 16px; }
+  .preview-section {
+    padding: 60px 16px;
+  }
+
   .strategy-section h2,
-  .preview-section h2 { font-size: 29px; }
-  .mailbox-info { padding: 23px 18px; }
-  .email-body { padding: 27px 22px; }
-  .email-hero h3 { font-size: 30px; }
-  .footer-links { gap: 13px; }
+  .preview-section h2 {
+    font-size: 29px;
+  }
+
+  .mailbox-info {
+    padding: 23px 18px;
+  }
+
+  .email-body {
+    padding: 27px 22px;
+  }
+
+  .email-hero h3 {
+    font-size: 30px;
+  }
+
+  .footer-links {
+    gap: 13px;
+  }
+
+  .coop-logo {
+    width: 170px;
+  }
 }
 </style>
 </head>
@@ -529,7 +572,11 @@ h1, h2, h3 { line-height: 1.2; }
 
   <div class="signup-box">
 
-    <div class="logo">THE <span>COOP</span></div>
+    <img
+      src="The%20coop.jpeg"
+      alt="The Coop Chicken Fingers Logo"
+      class="coop-logo">
+
     <div class="small-tagline">
       CHICKEN • SAUCE • GOOD TIMES
     </div>
@@ -609,7 +656,7 @@ h1, h2, h3 { line-height: 1.2; }
       <p class="privacy-text">
         No spam, just the good stuff.
         We respect your privacy and will
-        never sell your email list information.
+        never sell your personal information.
         You'll receive a confirmation email
         to verify your subscription before
         receiving your discount.
@@ -810,7 +857,7 @@ h1, h2, h3 { line-height: 1.2; }
 
     <div class="mailbox">
 
-      <!-- MAILBOX UI FRAME -->
+      <!-- MAILBOX FRAME -->
 
       <div class="mailbox-toolbar">
 
@@ -826,7 +873,7 @@ h1, h2, h3 { line-height: 1.2; }
 
       </div>
 
-      <!-- EMAIL METADATA -->
+      <!-- EMAIL DETAILS -->
 
       <div class="mailbox-info">
 
@@ -854,13 +901,14 @@ h1, h2, h3 { line-height: 1.2; }
 
       <div class="email">
 
-        <!-- BRAND HEADER -->
+        <!-- EMAIL HEADER WITH ACTUAL LOGO -->
 
         <header class="email-header">
 
-          <div class="logo">
-            THE <span>COOP</span>
-          </div>
+          <img
+            src="The%20coop.jpeg"
+            alt="The Coop Chicken Fingers Logo"
+            class="coop-logo">
 
           <div class="small-tagline">
             HAND-BREADED. NO SHORTCUTS.
@@ -868,7 +916,7 @@ h1, h2, h3 { line-height: 1.2; }
 
         </header>
 
-        <!-- HERO MESSAGE -->
+        <!-- HERO -->
 
         <div class="email-hero">
 
@@ -929,7 +977,7 @@ h1, h2, h3 { line-height: 1.2; }
             and let us handle the rest.
           </p>
 
-          <!-- EMAIL CTA -->
+          <!-- CTA BUTTON -->
 
           <div class="email-button-container">
 
@@ -955,15 +1003,16 @@ h1, h2, h3 { line-height: 1.2; }
 
         </div>
 
-        <!-- REQUIRED BRANDED FOOTER -->
+        <!-- BRANDED EMAIL FOOTER -->
 
         <footer class="email-footer">
 
-          <!-- LOGO & TAGLINE -->
+          <!-- ACTUAL LOGO -->
 
-          <div class="footer-logo">
-            THE COOP
-          </div>
+          <img
+            src="The%20coop.jpeg"
+            alt="The Coop Chicken Fingers Logo"
+            class="coop-logo">
 
           <div class="footer-tagline">
             HAND-BREADED. NO SHORTCUTS.
@@ -971,7 +1020,7 @@ h1, h2, h3 { line-height: 1.2; }
 
           <hr class="footer-divider">
 
-          <!-- CONTACT INFORMATION -->
+          <!-- ADDRESS & CONTACT -->
 
           <div class="footer-contact">
 
@@ -1005,31 +1054,29 @@ h1, h2, h3 { line-height: 1.2; }
 
           </div>
 
-          <!-- SOCIAL MEDIA -->
+          <!-- SOCIAL LINKS -->
 
           <div class="social-links">
 
             <a
               href="https://www.linkedin.com/company/the-coop-chicken-fingers"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="The Coop on LinkedIn">
-              in &nbsp; LinkedIn
+              rel="noopener noreferrer">
+              in LinkedIn
             </a>
 
             <a
               href="https://www.instagram.com/"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram">
-              ◎ &nbsp; Instagram
+              rel="noopener noreferrer">
+              ◎ Instagram
             </a>
 
           </div>
 
           <hr class="footer-divider">
 
-          <!-- PRIVACY, FORWARD & UNSUBSCRIBE -->
+          <!-- FOOTER LINKS -->
 
           <nav class="footer-links"
                aria-label="Email footer links">
@@ -1075,10 +1122,9 @@ h1, h2, h3 { line-height: 1.2; }
 
     <p class="demo-note">
       Educational marketing campaign preview.
-      The sign-up, email confirmation, coupon
-      distribution, and unsubscribe processing
-      require an email marketing platform
-      before this campaign can go live.
+      Live sign-up, double opt-in confirmation,
+      coupon delivery, and unsubscribe processing
+      require an email marketing service.
     </p>
 
   </div>
@@ -1086,10 +1132,9 @@ h1, h2, h3 { line-height: 1.2; }
 </section>
 
 
-<!-- INTERACTIVE DEMO BEHAVIOR -->
+<!-- DEMO JAVASCRIPT -->
 
 <script>
-
 const form = document.getElementById("signupForm");
 const message = document.getElementById("formMessage");
 
@@ -1099,10 +1144,9 @@ form.addEventListener("submit", function(event) {
   if (!form.reportValidity()) return;
 
   message.textContent =
-    "This is the campaign preview. " +
-    "A connected email service would receive " +
-    "your request and send a confirmation email. " +
-    "No information has been submitted.";
+    "This is a campaign preview. Connect an " +
+    "email marketing platform to submit your " +
+    "subscription and receive a confirmation email.";
 });
 
 const unsubscribeLink =
@@ -1112,12 +1156,11 @@ unsubscribeLink.addEventListener("click", function(event) {
   event.preventDefault();
 
   alert(
-    "Unsubscribe preview: In a real email, " +
-    "this link would take the subscriber " +
-    "to a secure unsubscribe page."
+    "Unsubscribe preview: A live campaign " +
+    "would open a secure unsubscribe page " +
+    "managed by the email marketing service."
   );
 });
-
 </script>
 
 </body>
